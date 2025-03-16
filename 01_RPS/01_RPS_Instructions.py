@@ -1,19 +1,29 @@
-print("hello")
+# Check that users have entered a valid answer
 
+# Main routine
+print()
+print("ROCK / PAPER / SCISSORS")
+print("The most fabulous game of them all!!")
+print()
+def string_checker(question, valid_ans=("yes", "no")):
 
-# function start
-def yes_no(question):
-    """Checks user response to a question is yes/no (y/n), returns 'yes' or 'no'"""
+    error = f"please enter a valid option from the following list: {valid_ans}"
     while True:
-        response = input(question).lower()
+        # get user response and make sure its lowercase
+        user_response = input(question).lower()
 
-        # check the user says yes / no
-        if response == "yes" or response == "y":
-            return "yes"
-        elif response == "no" or response == "n":
-            return "no"
-        else:
-            print("please answer yes / no")
+        for item in valid_ans:
+            # check if the user response is a word in the list
+            if item == user_response:
+                return item
+            # check if the user response is the same as
+            # the first letter of an item in the alphabet
+            elif user_response == item[0]:
+                return item
+
+        # print out error if user does not enter something 'valid'
+        print(error)
+        print()
 
 
 def instructions():
@@ -22,17 +32,27 @@ def instructions():
     print("""
 *** Instructions ***
 
-Choose rock, paper, or scissors and try to beat the computer!!
-    """)
+To begin, choose the number of rounds
+ (or you can play infinite mode.)
+ 
+ Then play against the computer
+ (you need to play rock (r) paper (p) or scissors (s)
+ 
+ paper beats rock
+ rock beats scissors
+ scissors beat paper
+ 
+ 
+ Have Fun !!
+     """)
 
 
 # Main routine
 
-want_instructions = yes_no("do you want to see the instructions?")
-print(f"you chose {want_instructions}")
+want_instructions = string_checker("do you want to see the instructions?")
 # Display the instructions if user wants to see them
 if want_instructions == "yes":
     instructions()
 
     print()
-print("program continues")
+print("program blows up and explodes")

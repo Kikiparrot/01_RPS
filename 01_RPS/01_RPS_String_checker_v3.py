@@ -1,7 +1,7 @@
 # Check that users have entered a valid answer
 
 
-def string_checker(question, valid_ans=["yes", "no"]):
+def string_checker(question, valid_ans=("yes", "no")):
 
     error = f"please enter a valid option from the following list: {valid_ans}"
     while True:
